@@ -4,6 +4,7 @@ import Image from 'next/image'
 import CTASection from '@/components/CTASection'
 import MethodologyStack from '@/components/MethodologyStack'
 import SectionRule from '@/components/SectionRule'
+import EscalationLoop from '@/components/EscalationLoop'
 
 export const metadata: Metadata = {
   title: 'Leadership Infrastructure for Scaling Organisations',
@@ -47,15 +48,6 @@ const maturityStages = [
   { stage: '04', label: 'Distributed Ownership',   numOpacity: 0.75 },
   { stage: '05', label: 'Autonomous Organisation', numOpacity: 1    },
 ] as const
-
-// Typed so TypeScript catches missing `highlight` values
-type LoopStep = { n: string; title: string; sub: string; highlight?: boolean }
-const loopSteps: LoopStep[] = [
-  { n: '01', title: 'Issue Emerges',          sub: 'A decision or problem surfaces requiring resolution' },
-  { n: '02', title: 'Escalated to Executive', sub: 'No clear ownership; routes upward by default', highlight: true },
-  { n: '03', title: 'Executive Resolves',     sub: 'Issue resolved — but the structural gap remains' },
-  { n: '04', title: 'Pattern Repeats',        sub: 'Same issue recurs. Executive bandwidth erodes.' },
-]
 
 const heroStack = [
   { id: 'ELI',  name: 'Executive Leverage Index',     color: '#4C6A5E' },
@@ -228,76 +220,7 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════════════
           ESCALATION LOOP
       ══════════════════════════════════════════════════ */}
-      <section className="bg-white section-py-sm border-y border-surface-muted">
-        <div className="section-inner">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-
-            <div className="lg:col-span-4">
-              <SectionRule />
-              <p className="eyebrow mb-5">Structural Failure Pattern</p>
-              <h2 className="font-display font-medium text-navy text-display-sm text-balance mb-5">
-                The Escalation Dependency Loop
-              </h2>
-              <p className="font-body text-body-sm text-ink-soft leading-relaxed mb-5">
-                The most common structural failure pattern in scaling organisations. Not caused by poor leadership — caused by absent infrastructure.
-              </p>
-              <p className="font-body text-body-sm text-ink-soft leading-relaxed">
-                Until the underlying structure is diagnosed and closed, the loop continues regardless of individual effort or intent.
-              </p>
-            </div>
-
-            <div className="lg:col-span-8">
-              <div className="bg-surface border border-surface-muted p-6 sm:p-8">
-
-                {/* Ordered list — conveys sequence to screen readers */}
-                <ol
-                  className="grid grid-cols-2 lg:grid-cols-4 gap-3"
-                  aria-label="Escalation dependency loop steps"
-                >
-                  {loopSteps.map((step) => (
-                    <li
-                      key={step.n}
-                      className={`border p-5 bg-white ${
-                        step.highlight ? 'border-eli/40' : 'border-surface-muted'
-                      }`}
-                    >
-                      <span
-                        className="font-body font-semibold text-eli/70 block mb-3 text-label-sm tracking-[0.18em]"
-                        aria-hidden="true"
-                      >
-                        {step.n}
-                      </span>
-                      <p className="font-body font-semibold text-navy text-body-xs mb-1.5">{step.title}</p>
-                      <p className="font-body text-ink-soft text-label leading-snug">{step.sub}</p>
-                    </li>
-                  ))}
-                </ol>
-
-                {/* Return-arc indicator */}
-                <div
-                  className="mt-3 border border-dashed border-eli/20 px-5 py-2.5 flex items-center gap-3"
-                  aria-label="The loop repeats without structural resolution"
-                >
-                  <div className="flex-1 h-px bg-eli/15" aria-hidden="true" />
-                  <p className="font-body text-ink-faint shrink-0 text-label tracking-[0.06em]">
-                    ↺&ensp;Loop continues — no structural resolution
-                  </p>
-                  <div className="flex-1 h-px bg-eli/15" aria-hidden="true" />
-                </div>
-
-                <div className="mt-6 pt-6 border-t border-surface-muted flex items-center justify-between gap-6 flex-wrap">
-                  <p className="font-body text-ink-soft leading-relaxed max-w-sm text-body-xs">
-                    The ELI Snapshot identifies the specific structural gaps sustaining this pattern in your organisation.
-                  </p>
-                  <Link href="/eli-snapshot" className="btn-eli px-6 py-2.5 shrink-0 text-[0.75rem]">
-                    Take the ELI Snapshot
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <EscalationLoop />
 
       {/* ══════════════════════════════════════════════════
           AUTHORITY
