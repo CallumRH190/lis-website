@@ -3,6 +3,7 @@ import Link from 'next/link'
 import PageHeader from '@/components/PageHeader'
 import CTASection from '@/components/CTASection'
 import SectionRule from '@/components/SectionRule'
+import ELIScoreReveal from '@/components/ELIScoreReveal'
 
 export const metadata: Metadata = {
   title: 'ELI Snapshot — Executive Leverage Index',
@@ -138,6 +139,9 @@ export default function ELISnapshotPage() {
           </div>
         </div>
       </section>
+
+      {/* ── ANIMATED SCORE REVEAL ─────────────────────────────────────── */}
+      <ELIScoreReveal />
 
       {/* ── WHO IT IS FOR + WHAT HAPPENS AFTER ───────────────────────── */}
       <section className="section-py bg-surface" aria-label="Audience and outcomes">
