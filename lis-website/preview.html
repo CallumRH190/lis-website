@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leadership Infrastructure Systems — Revised Homepage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0F1E2E;
+    --navy-l: #1a2f45;
+    --slate: #1F2933;
+    --surface: #F4F6F8;
+    --muted: #E8ECF0;
+    --eli: #5F7D6B;
+    --oci: #C9A34A;
+    --limm: #5B4B7A;
+  }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { background: var(--surface); color: var(--slate); font-family: 'Inter', sans-serif; line-height: 1.65; }
+  h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; color: var(--navy); line-height: 1.15; }
+  ::selection { background: var(--oci); color: var(--navy); }
+  a { text-decoration: none; color: inherit; }
+
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 2.5rem; }
+  .wrap-sm { max-width: 920px; margin: 0 auto; padding: 0 2.5rem; }
+  .label { font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--eli); }
+
+  /* ─ NAV ─ */
+  nav { background: rgba(244,246,248,0.97); backdrop-filter: blur(8px); border-bottom: 1px solid var(--muted); position: sticky; top: 0; z-index: 50; }
+  .nav-in { max-width: 1200px; margin: 0 auto; padding: 0 2.5rem; display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .bars { display: flex; align-items: flex-end; gap: 2px; }
+  .bars span { display: block; width: 3px; }
+  .bars span:nth-child(1) { height: 22px; background: var(--navy); }
+  .bars span:nth-child(2) { height: 16px; background: var(--eli); }
+  .bars span:nth-child(3) { height: 20px; background: var(--oci); }
+  .wordmark .lis { font-family: 'Playfair Display', serif; font-weight: 600; font-size: 1rem; color: var(--navy); display: block; line-height: 1; }
+  .wordmark .sub { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(31,41,51,.45); display: block; margin-top: 2px; }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { font-size: 13px; font-weight: 500; color: rgba(31,41,51,.72); letter-spacing: .02em; }
+  .nav-links a:hover { color: var(--navy); }
+  .cta-pill { background: var(--navy); color: #fff; font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; padding: 10px 20px; cursor: pointer; border: 1px solid var(--navy); transition: background .2s; }
+  .cta-pill:hover { background: var(--navy-l); }
+
+  /* ─ BTNS ─ */
+  .btn { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; letter-spacing: .06em; padding: 13px 28px; border: 1px solid; cursor: pointer; font-family: 'Inter', sans-serif; transition: all .2s; }
+  .btn-navy { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .btn-navy:hover { background: var(--navy-l); }
+  .btn-eli { background: var(--eli); color: #fff; border-color: var(--eli); }
+  .btn-eli:hover { background: #7a9888; }
+  .btn-outline { background: transparent; color: var(--navy); border-color: var(--navy); }
+  .btn-outline:hover { background: var(--navy); color: #fff; }
+  .btn-sm { font-size: 11px; padding: 10px 20px; letter-spacing: .09em; }
+  .ghost { font-size: 13px; font-weight: 500; color: rgba(255,255,255,.58); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+
+  /* ─ HERO ─ */
+  .hero { background: var(--navy); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%230F1E2E'/%3E%3Ccircle cx='1' cy='1' r='0.5' fill='%23162636' opacity='0.5'/%3E%3Ccircle cx='3' cy='3' r='0.5' fill='%23162636' opacity='0.5'/%3E%3C/svg%3E"); padding: 5.5rem 0 5rem; }
+  .hero .in { display: grid; grid-template-columns: 1.35fr 1fr; gap: 3.5rem; align-items: start; }
+  .hero h1 { color: #fff; font-size: clamp(2.1rem, 4.2vw, 3.35rem); font-weight: 500; line-height: 1.1; }
+  .hero .desc { color: rgba(255,255,255,.68); font-size: 1.1rem; line-height: 1.65; margin-top: 1.5rem; max-width: 520px; }
+  .hero .ctas { display: flex; align-items: center; gap: 1.25rem; margin-top: 2.5rem; flex-wrap: wrap; }
+  .hero .micro { margin-top: .875rem; font-size: 11px; color: rgba(255,255,255,.3); letter-spacing: .08em; }
+  .stack-box { border: 1px solid rgba(255,255,255,.1); padding: 2rem; }
+  .stack-label { font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 1.5rem; }
+  .stack-row { display: flex; align-items: center; gap: 1rem; padding: .875rem 0; border-bottom: 1px solid rgba(255,255,255,.07); }
+  .stack-row:last-child { border-bottom: none; }
+  .stack-bar { width: 2px; min-height: 2rem; align-self: stretch; border-radius: 1px; flex-shrink: 0; }
+  .stack-id { font-size: 9px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; display: block; }
+  .stack-name { font-size: 13px; color: rgba(255,255,255,.58); margin-top: 2px; }
+
+  /* ─ SYMPTOMS ─ */
+  .symptoms { background: #fff; padding: 4.5rem 0; border-bottom: 1px solid var(--muted); }
+  .symptoms .in { display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; align-items: start; }
+  .symptoms h2 { font-size: clamp(1.45rem, 2.3vw, 2rem); font-weight: 500; margin-top: 1rem; }
+  .symptoms .note { font-size: 13px; color: rgba(31,41,51,.6); line-height: 1.65; margin-top: 1rem; }
+  .symp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--muted); }
+  .symp-card { background: #fff; padding: 1.5rem 1.75rem; display: flex; gap: 1.125rem; }
+  .symp-num { flex-shrink: 0; font-size: 9.5px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--eli); margin-top: 2px; }
+  .symp-text { font-size: 13px; color: rgba(31,41,51,.78); line-height: 1.6; }
+  .symp-footer { margin-top: .875rem; font-size: 11px; color: rgba(31,41,51,.38); font-style: italic; padding: 0 .25rem; }
+
+  /* ─ PROBLEM REFRAME ─ */
+  .problem { background: var(--surface); padding: 5rem 0; }
+  .problem .in { display: grid; grid-template-columns: 1fr 1.3fr; gap: 4rem; align-items: start; }
+  .problem h2 { font-size: clamp(1.5rem, 2.5vw, 2.2rem); font-weight: 500; }
+  .problem p { font-size: .9375rem; color: rgba(31,41,51,.78); line-height: 1.75; margin-bottom: 1.25rem; }
+  .pull-quote { border-left: 3px solid var(--eli); padding-left: 1.5rem; }
+  .pull-quote p { font-weight: 600; color: var(--navy); margin: 0; }
+
+  /* ─ LOOP ─ */
+  .loop { background: #fff; padding: 4.5rem 0; border-top: 1px solid var(--muted); border-bottom: 1px solid var(--muted); }
+  .loop .in { display: grid; grid-template-columns: 1fr 1.7fr; gap: 4rem; align-items: start; }
+  .loop h2 { font-size: clamp(1.25rem, 1.8vw, 1.6rem); font-weight: 500; margin: .75rem 0 1.25rem; }
+  .loop .desc { font-size: 13px; color: rgba(31,41,51,.65); line-height: 1.7; margin-bottom: 1rem; }
+  .loop-diagram { background: var(--surface); border: 1px solid var(--muted); padding: 2.5rem; }
+  .loop-steps { display: flex; align-items: stretch; gap: 0; }
+  .loop-step { flex: 1; border: 1px solid var(--muted); background: #fff; padding: 1.25rem; }
+  .loop-step:nth-child(2) { border-color: rgba(95,125,107,.35); }
+  .loop-step-num { font-size: 9px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--eli); display: block; margin-bottom: .5rem; }
+  .loop-step-title { font-size: 12px; font-weight: 600; color: var(--navy); margin-bottom: .375rem; font-family: 'Inter', sans-serif; }
+  .loop-step-sub { font-size: 11px; color: rgba(31,41,51,.5); line-height: 1.5; }
+  .loop-connector { display: flex; align-items: center; padding: 0 .375rem; color: rgba(95,125,107,.4); font-size: 13px; flex-shrink: 0; }
+  .loop-return { border: 1px dashed rgba(95,125,107,.22); padding: .625rem 1rem; margin-top: .5rem; display: flex; align-items: center; gap: .75rem; }
+  .loop-return-line { flex: 1; height: 1px; background: rgba(95,125,107,.15); }
+  .loop-return-text { font-size: 10px; color: rgba(31,41,51,.38); letter-spacing: .05em; white-space: nowrap; }
+  .loop-footer { border-top: 1px solid var(--muted); margin-top: 1.5rem; padding-top: 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .loop-footer p { font-size: 11px; color: rgba(31,41,51,.48); max-width: 440px; line-height: 1.6; }
+
+  /* ─ AUTHORITY ─ */
+  .authority { background: var(--navy); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%230F1E2E'/%3E%3Ccircle cx='1' cy='1' r='0.5' fill='%23162636' opacity='0.5'/%3E%3Ccircle cx='3' cy='3' r='0.5' fill='%23162636' opacity='0.5'/%3E%3C/svg%3E"); padding: 5rem 0; }
+  .authority .in { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; align-items: start; }
+  .authority h2 { color: #fff; font-size: clamp(1.5rem, 2.5vw, 2.2rem); font-weight: 500; }
+  .authority .desc { color: rgba(255,255,255,.68); font-size: .9375rem; line-height: 1.75; margin-bottom: 1.25rem; }
+  .principles { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: rgba(255,255,255,.08); margin-top: 2.5rem; }
+  .principle { background: rgba(255,255,255,.04); padding: 1.5rem; }
+  .principle .line { width: 20px; height: 1px; background: var(--eli); margin-bottom: 1.125rem; }
+  .principle h4 { font-size: 11px; font-weight: 600; color: #fff; letter-spacing: .04em; margin-bottom: .5rem; font-family: 'Inter', sans-serif; }
+  .principle p { font-size: 11.5px; color: rgba(255,255,255,.48); line-height: 1.6; }
+
+  /* ─ ELI + AFTER ─ */
+  .eli { background: var(--surface); padding: 5rem 0; }
+  .eli .in { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .eli h2 { font-size: clamp(1.5rem, 2.5vw, 2.2rem); font-weight: 500; margin-bottom: 1.25rem; }
+  .eli .desc { font-size: .9375rem; color: rgba(31,41,51,.78); line-height: 1.75; margin-bottom: 1.125rem; }
+  .eli-measure { display: flex; align-items: center; gap: 10px; font-size: 13px; color: rgba(31,41,51,.78); margin-bottom: .625rem; }
+  .eli-measure::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--eli); flex-shrink: 0; }
+  .after-card { background: #fff; border: 1px solid var(--muted); padding: 2.5rem; }
+  .after-label { font-size: 10px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--eli); margin-bottom: 1.75rem; }
+  .after-item { display: flex; gap: 1.25rem; align-items: flex-start; margin-bottom: 1.625rem; }
+  .after-num { flex-shrink: 0; width: 28px; height: 28px; border: 1px solid var(--eli); color: var(--eli); font-size: 11px; font-weight: 600; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+  .after-title { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 4px; font-family: 'Inter', sans-serif; }
+  .after-detail { font-size: 12.5px; color: rgba(31,41,51,.6); line-height: 1.6; }
+  .after-footer { border-top: 1px solid var(--muted); margin-top: .5rem; padding-top: 1.5rem; }
+  .after-footer .micro { font-size: 11px; color: rgba(31,41,51,.38); margin-bottom: 1rem; }
+
+  /* ─ WHO ─ */
+  .who { background: #fff; padding: 5rem 0; }
+  .who .header { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: end; margin-bottom: 3.5rem; }
+  .who h2 { font-size: clamp(1.5rem, 2.5vw, 2.2rem); font-weight: 500; }
+  .who .header-desc { font-size: .9375rem; color: rgba(31,41,51,.68); line-height: 1.75; }
+  .who-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--muted); }
+  .who-card { background: #fff; padding: 2rem; }
+  .who-line { height: 1px; width: 20px; margin-bottom: 1.75rem; }
+  .who-role { font-family: 'Playfair Display', serif; font-size: .9375rem; color: var(--navy); font-weight: 500; margin-bottom: .375rem; }
+  .who-context { font-size: 9.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 1rem; display: block; }
+  .who-detail { font-size: 12.5px; color: rgba(31,41,51,.62); line-height: 1.65; }
+  .who-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 1.75rem; padding: 0 .25rem; flex-wrap: wrap; gap: .75rem; }
+  .who-footer p { font-size: 11px; color: rgba(31,41,51,.35); }
+  .who-footer a { font-size: 11.5px; font-weight: 600; color: var(--navy); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* ─ METHODOLOGY STACK ─ */
+  .method { background: var(--surface); padding: 5rem 0; }
+  .method .in { display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; align-items: start; }
+  .method h2 { font-size: clamp(1.5rem, 2.2vw, 2rem); font-weight: 500; margin-bottom: 1.25rem; }
+  .method .desc { font-size: 13px; color: rgba(31,41,51,.65); line-height: 1.7; margin-bottom: 2rem; }
+  .stack { border: 1px solid var(--muted); background: #fff; overflow: hidden; }
+  .fw { display: flex; align-items: center; gap: 1.25rem; padding: 1.5rem 2rem; border-bottom: 1px solid var(--muted); transition: background .15s; cursor: default; }
+  .fw:last-child { border-bottom: none; }
+  .fw:hover { background: var(--surface); }
+  .fw-n { flex-shrink: 0; width: 30px; height: 30px; border: 1px solid; display: flex; align-items: center; justify-content: center; font-size: 10.5px; font-weight: 600; }
+  .fw-pill { font-size: 9px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; padding: 4px 10px; border: 1px solid; flex-shrink: 0; }
+  .fw-name { font-family: 'Playfair Display', serif; font-size: .9375rem; color: var(--navy); font-weight: 500; flex: 1; }
+  .fw-arr { color: rgba(31,41,51,.18); font-size: 13px; }
+
+  /* ─ MATURITY ─ */
+  .maturity { background: #fff; padding: 4rem 0; border-top: 1px solid var(--muted); border-bottom: 1px solid var(--muted); }
+  .maturity-hdr { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2.25rem; flex-wrap: wrap; gap: 1rem; }
+  .maturity h2 { font-size: 1.375rem; font-weight: 500; margin-top: .375rem; }
+  .maturity-link { font-size: 13px; font-weight: 500; color: var(--navy); text-decoration: underline; text-underline-offset: 4px; }
+  .maturity-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: var(--muted); }
+  .m-card { background: var(--surface); padding: 1.5rem; }
+  .m-stage { font-size: 9px; letter-spacing: .18em; text-transform: uppercase; color: rgba(31,41,51,.35); display: block; margin-bottom: 8px; }
+  .m-label { font-family: 'Playfair Display', serif; font-size: 13px; color: var(--navy); font-weight: 500; }
+  .maturity-note { text-align: right; margin-top: .75rem; font-size: 11px; color: rgba(31,41,51,.32); }
+
+  /* ─ FINAL CTA ─ */
+  .final-cta { background: var(--navy); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%230F1E2E'/%3E%3Ccircle cx='1' cy='1' r='0.5' fill='%23162636' opacity='0.5'/%3E%3Ccircle cx='3' cy='3' r='0.5' fill='%23162636' opacity='0.5'/%3E%3C/svg%3E"); padding: 6rem 0; text-align: center; }
+  .final-cta h2 { color: #fff; font-size: clamp(1.6rem, 3vw, 2.5rem); font-weight: 500; max-width: 680px; margin: 0 auto 1.5rem; line-height: 1.2; }
+  .final-cta p { color: rgba(255,255,255,.63); font-size: 1rem; max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.7; }
+  .cta-row { display: flex; align-items: center; justify-content: center; gap: 1.25rem; flex-wrap: wrap; }
+  .micro-dark { margin-top: 1.25rem; font-size: 11px; color: rgba(255,255,255,.28); letter-spacing: .08em; }
+
+  /* ─ FOOTER ─ */
+  footer { background: var(--navy); background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Crect width='4' height='4' fill='%230F1E2E'/%3E%3Ccircle cx='1' cy='1' r='0.5' fill='%23162636' opacity='0.5'/%3E%3Ccircle cx='3' cy='3' r='0.5' fill='%23162636' opacity='0.5'/%3E%3C/svg%3E"); }
+  .ft { max-width: 1200px; margin: 0 auto; padding: 4rem 2.5rem 3rem; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; }
+  .ft-brand p { font-size: 12.5px; color: rgba(255,255,255,.45); line-height: 1.7; max-width: 280px; margin-top: 1.25rem; }
+  .ft-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--eli); color: #fff; font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; padding: 11px 20px; margin-top: 1.5rem; cursor: pointer; transition: background .2s; }
+  .ft-cta:hover { background: #7a9888; }
+  .ft-col h4 { font-size: 9px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 1.25rem; }
+  .ft-col ul { list-style: none; display: flex; flex-direction: column; gap: .75rem; }
+  .ft-col ul li a { font-size: 12.5px; color: rgba(255,255,255,.55); }
+  .ft-col ul li a:hover { color: #fff; }
+  .ft-bot { border-top: 1px solid rgba(255,255,255,.08); }
+  .ft-bot-in { max-width: 1200px; margin: 0 auto; padding: 1.25rem 2.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .ft-bot-in p, .ft-bot-in a { font-size: 11px; color: rgba(255,255,255,.22); }
+  .ft-bot-links { display: flex; gap: 1.5rem; }
+
+  @media (max-width: 960px) {
+    .hero .in, .problem .in, .eli .in, .method .in, .authority .in, .loop .in { grid-template-columns: 1fr; }
+    .stack-box { display: none; }
+    .symp-grid { grid-template-columns: 1fr; }
+    .who-grid, .principles { grid-template-columns: 1fr 1fr; }
+    .maturity-grid { grid-template-columns: 1fr 1fr 1fr; }
+    .ft { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .wrap, .wrap-sm { padding: 0 1.25rem; }
+    .who-grid, .principles { grid-template-columns: 1fr; }
+    .maturity-grid { grid-template-columns: 1fr 1fr; }
+    .loop-steps { flex-direction: column; }
+    .loop-connector { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ────────────────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-in">
+    <div class="brand">
+      <div class="bars"><span></span><span></span><span></span></div>
+      <div class="wordmark">
+        <span class="lis">LIS</span>
+        <span class="sub">Leadership Infrastructure</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#">Methodology</a>
+      <a href="#">Solutions</a>
+      <a href="#">Insights</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+    <button class="cta-pill">Take ELI Snapshot</button>
+  </div>
+</nav>
+
+<!-- ── HERO ───────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="wrap">
+    <div class="in">
+      <div>
+        <p class="label" style="margin-bottom:1.5rem;">Executive Diagnostic Platform</p>
+        <h1>Leadership Infrastructure for Companies Scaling Under Pressure</h1>
+        <p class="desc">A structured diagnostic that reveals where ownership, decision-making, and leadership load are breaking inside your organisation.</p>
+        <div class="ctas">
+          <button class="btn btn-eli">Take the 3-Minute Leadership Diagnostic</button>
+          <span class="ghost">View the Methodology</span>
+        </div>
+        <p class="micro">3-minute diagnostic · No account required · Instant result</p>
+      </div>
+
+      <div class="stack-box">
+        <p class="stack-label">Infrastructure Stack</p>
+        <div class="stack-row">
+          <div class="stack-bar" style="background:#5F7D6B;"></div>
+          <div><span class="stack-id" style="color:#5F7D6B;">ELI</span><p class="stack-name">Executive Leverage Index</p></div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-bar" style="background:#C9A34A;"></div>
+          <div><span class="stack-id" style="color:#C9A34A;">OCI</span><p class="stack-name">Organisational Clarity Index</p></div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-bar" style="background:#5B4B7A;"></div>
+          <div><span class="stack-id" style="color:#5B4B7A;">LIMM</span><p class="stack-name">Maturity Model</p></div>
+        </div>
+        <div class="stack-row">
+          <div class="stack-bar" style="background:#4A7A9C;"></div>
+          <div><span class="stack-id" style="color:#4A7A9C;">LIS</span><p class="stack-name">Implementation Framework</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SYMPTOMS ───────────────────────────────────────────────────────── -->
+<section class="symptoms">
+  <div class="wrap">
+    <div class="in">
+      <div>
+        <p class="label">Recognise This?</p>
+        <h2>Symptoms of leadership infrastructure failure.</h2>
+        <p class="note">These are structural patterns, not management failures. They appear predictably when organisations scale faster than their leadership infrastructure.</p>
+        <div style="margin-top:2rem;">
+          <button class="btn btn-navy btn-sm">Run the Diagnostic</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="symp-grid">
+          <div class="symp-card">
+            <span class="symp-num">01</span>
+            <p class="symp-text">Decisions repeatedly escalating to founders or executives that should be resolved at team level.</p>
+          </div>
+          <div class="symp-card">
+            <span class="symp-num">02</span>
+            <p class="symp-text">Leadership teams overloaded with operational issues rather than focused on strategic direction.</p>
+          </div>
+          <div class="symp-card">
+            <span class="symp-num">03</span>
+            <p class="symp-text">Strategic priorities consistently interrupted by firefighting and reactive problem-solving.</p>
+          </div>
+          <div class="symp-card">
+            <span class="symp-num">04</span>
+            <p class="symp-text">Ownership unclear across teams — outcomes without identifiable accountable owners.</p>
+          </div>
+          <div class="symp-card">
+            <span class="symp-num">05</span>
+            <p class="symp-text">Decisions stalling between departments with no clear resolution pathway.</p>
+          </div>
+          <div class="symp-card">
+            <span class="symp-num">06</span>
+            <p class="symp-text">Standards applied inconsistently across the organisation, producing unpredictable performance.</p>
+          </div>
+        </div>
+        <p class="symp-footer">If three or more of these patterns are present, the issue is structural.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROBLEM REFRAME ────────────────────────────────────────────────── -->
+<section class="problem">
+  <div class="wrap">
+    <div class="in">
+      <div>
+        <p class="label" style="margin-bottom:1.125rem;">The Core Problem</p>
+        <h2>Leadership problems are usually infrastructure problems.</h2>
+      </div>
+      <div>
+        <p>Most organisations respond to leadership pressure by developing individual leaders — training programmes, coaching engagements, and capability frameworks.</p>
+        <p>But leadership effectiveness is determined not only by who occupies leadership roles. It is determined by the systems around them: how decisions are structured, how ownership is assigned, how authority flows, and how accountability is maintained under pressure.</p>
+        <div class="pull-quote">
+          <p>When those systems are absent or poorly designed, organisations experience predictable failure patterns — regardless of individual quality.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ESCALATION DEPENDENCY LOOP ────────────────────────────────────── -->
+<section class="loop">
+  <div class="wrap">
+    <div class="in">
+      <div>
+        <p class="label">Structural Failure Pattern</p>
+        <h2>The Escalation Dependency Loop</h2>
+        <p class="desc">The most common structural failure pattern in scaling organisations. It is not caused by poor leadership — it is caused by absent infrastructure.</p>
+        <p class="desc">Until the underlying structure is diagnosed and closed, the loop continues regardless of individual effort or intent.</p>
+      </div>
+
+      <div class="loop-diagram">
+        <div class="loop-steps">
+          <div class="loop-step">
+            <span class="loop-step-num">01</span>
+            <p class="loop-step-title">Issue Emerges</p>
+            <p class="loop-step-sub">Decision or problem surfaces requiring resolution</p>
+          </div>
+          <div class="loop-connector">→</div>
+          <div class="loop-step" style="border-color:rgba(95,125,107,.35);">
+            <span class="loop-step-num">02</span>
+            <p class="loop-step-title">Escalated to Executive</p>
+            <p class="loop-step-sub">No clear ownership; routes upward by default</p>
+          </div>
+          <div class="loop-connector">→</div>
+          <div class="loop-step">
+            <span class="loop-step-num">03</span>
+            <p class="loop-step-title">Executive Resolves</p>
+            <p class="loop-step-sub">Issue closed — structural gap remains intact</p>
+          </div>
+          <div class="loop-connector">→</div>
+          <div class="loop-step">
+            <span class="loop-step-num">04</span>
+            <p class="loop-step-title">Pattern Repeats</p>
+            <p class="loop-step-sub">Same issue recurs. Executive bandwidth erodes.</p>
+          </div>
+        </div>
+
+        <div class="loop-return">
+          <div class="loop-return-line"></div>
+          <span class="loop-return-text">↺ &nbsp;Loop continues — no structural resolution</span>
+          <div class="loop-return-line"></div>
+        </div>
+
+        <div class="loop-footer">
+          <p>The ELI Snapshot identifies the specific structural gaps sustaining this pattern in your organisation.</p>
+          <button class="btn btn-eli btn-sm" style="flex-shrink:0;">Take the ELI Snapshot</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── AUTHORITY STATEMENT ────────────────────────────────────────────── -->
+<section class="authority">
+  <div class="wrap">
+    <div class="in">
+      <div>
+        <p class="label" style="margin-bottom:1.125rem;">Our Approach</p>
+        <h2>A structured methodology. Not coaching. Not advisory.</h2>
+      </div>
+      <div>
+        <p class="desc">Leadership Infrastructure Systems is a diagnostic and implementation methodology for organisations experiencing the structural consequences of scale. Our work begins with rigorous measurement — the ELI, OCI, and LIMM frameworks — and moves through to implementation: installing the ownership structures, decision rights architecture, and accountability systems that allow leadership to function effectively at scale.</p>
+        <p class="desc">This is not executive coaching. It is not transformation consulting. It is structured engineering of the operational infrastructure that surrounds leadership — built to function independently, not to create ongoing dependency.</p>
+        <div class="principles">
+          <div class="principle">
+            <div class="line"></div>
+            <h4>Diagnostic First</h4>
+            <p>Every engagement begins with structured measurement, not assumed solutions.</p>
+          </div>
+          <div class="principle">
+            <div class="line"></div>
+            <h4>Systems, Not Individuals</h4>
+            <p>We build the infrastructure around leadership, not leadership capability itself.</p>
+          </div>
+          <div class="principle">
+            <div class="line"></div>
+            <h4>Independence as the Goal</h4>
+            <p>The infrastructure we install is designed to operate without ongoing involvement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ELI + WHAT HAPPENS AFTER ───────────────────────────────────────── -->
+<section class="eli">
+  <div class="wrap">
+    <div class="in">
+      <div>
+        <p class="label" style="margin-bottom:1.125rem;">Diagnostic Instrument</p>
+        <h2>The Executive Leverage Index</h2>
+        <p class="desc">The ELI is a structured diagnostic that measures how leadership responsibility is distributed across your organisation — and where concentration, gaps, and pressure points exist.</p>
+        <p class="desc">It is a structural analysis of how your organisation actually operates: who makes decisions, where they stall, and what that pattern reveals about your leadership infrastructure.</p>
+        <div style="margin: 1.25rem 0 2.5rem;">
+          <div class="eli-measure">Escalation frequency and patterns</div>
+          <div class="eli-measure">Executive decision load and availability</div>
+          <div class="eli-measure">Leadership ownership distribution</div>
+          <div class="eli-measure">Decision velocity across the structure</div>
+          <div class="eli-measure">Organisational leverage ratio</div>
+        </div>
+        <button class="btn btn-navy">Take the ELI Snapshot</button>
+      </div>
+
+      <div class="after-card">
+        <p class="after-label">What Happens After the Diagnostic</p>
+
+        <div class="after-item">
+          <div class="after-num">01</div>
+          <div>
+            <p class="after-title">Where leadership pressure is concentrated</p>
+            <p class="after-detail">Understand which parts of your structure are absorbing disproportionate decision load — and why.</p>
+          </div>
+        </div>
+        <div class="after-item">
+          <div class="after-num">02</div>
+          <div>
+            <p class="after-title">How decisions move through your organisation</p>
+            <p class="after-detail">See where decisions accelerate, stall, or divert — and what that reveals about your authority structure.</p>
+          </div>
+        </div>
+        <div class="after-item">
+          <div class="after-num">03</div>
+          <div>
+            <p class="after-title">Where ownership is unclear or missing</p>
+            <p class="after-detail">Identify the accountability gaps producing the escalation and ambiguity you are experiencing.</p>
+          </div>
+        </div>
+        <div class="after-item" style="margin-bottom:0;">
+          <div class="after-num">04</div>
+          <div>
+            <p class="after-title">How leadership load is distributed</p>
+            <p class="after-detail">Understand whether your leadership capacity is genuinely distributed or concentrated in a single layer.</p>
+          </div>
+        </div>
+
+        <div class="after-footer">
+          <p class="micro">3 minutes · No registration required · Immediate results</p>
+          <button class="btn btn-eli btn-sm" style="width:100%; justify-content:center;">Take the 3-Minute Diagnostic</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHO THIS IS FOR ─────────────────────────────────────────────────── -->
+<section class="who">
+  <div class="wrap">
+    <div class="header">
+      <div>
+        <p class="label" style="margin-bottom:1rem;">Who This Is For</p>
+        <h2>Organisations experiencing the structural consequences of scale.</h2>
+      </div>
+      <p class="header-desc">This work is relevant wherever a growing organisation has outpaced its leadership infrastructure. The specific role matters less than the structural condition: friction, escalation, and slowing decision velocity as the organisation grows.</p>
+    </div>
+
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-line" style="background:#5F7D6B;"></div>
+        <p class="who-role">Founder-led Companies</p>
+        <span class="who-context" style="color:#5F7D6B;">Scaling beyond the early stage</span>
+        <p class="who-detail">Organisations where the founding team is reaching the limits of what founder-dependent operations can sustain. The structure that worked at 15 people is creating friction at 40.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-line" style="background:#C9A34A;"></div>
+        <p class="who-role">CEOs</p>
+        <span class="who-context" style="color:#C9A34A;">Experiencing decision bottlenecks</span>
+        <p class="who-detail">Executives who find themselves involved in decisions that should not require their input — and who recognise that this is a structural problem, not a people problem.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-line" style="background:#5B4B7A;"></div>
+        <p class="who-role">COOs</p>
+        <span class="who-context" style="color:#5B4B7A;">Managing operational complexity</span>
+        <p class="who-detail">Operations leaders responsible for the architecture of how the organisation functions — who need a diagnostic baseline before designing structural interventions.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-line" style="background:#0F1E2E;"></div>
+        <p class="who-role">Leadership Teams</p>
+        <span class="who-context" style="color:#0F1E2E;">Seeking structural clarity</span>
+        <p class="who-detail">Teams experiencing friction that feels interpersonal or cultural, but which is more likely structural: unclear ownership, undefined authority, inconsistent standards.</p>
+      </div>
+    </div>
+
+    <div class="who-footer">
+      <p>Typically organisations with £2M–£50M revenue and leadership teams of 5–20 people.</p>
+      <a href="#">About the methodology →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── METHODOLOGY STACK ───────────────────────────────────────────────── -->
+<section class="method">
+  <div class="wrap">
+    <div class="in">
+      <div>
+        <p class="label" style="margin-bottom:1.125rem;">The Methodology</p>
+        <h2>Four integrated diagnostic frameworks.</h2>
+        <p class="desc">The LIS methodology moves from measurement to implementation — from identifying structural failure patterns to installing the systems that resolve them.</p>
+        <button class="btn btn-outline btn-sm">View Full Methodology</button>
+      </div>
+
+      <div class="stack">
+        <div class="fw">
+          <div class="fw-n" style="border-color:#5F7D6B; color:#5F7D6B;">01</div>
+          <span class="fw-pill" style="background:rgba(95,125,107,.1); border-color:rgba(95,125,107,.3); color:#5F7D6B;">ELI</span>
+          <span class="fw-name">Executive Leverage Index</span>
+          <span class="fw-arr">→</span>
+        </div>
+        <div class="fw">
+          <div class="fw-n" style="border-color:#C9A34A; color:#C9A34A;">02</div>
+          <span class="fw-pill" style="background:rgba(201,163,74,.1); border-color:rgba(201,163,74,.3); color:#C9A34A;">OCI</span>
+          <span class="fw-name">Organisational Clarity Index</span>
+          <span class="fw-arr">→</span>
+        </div>
+        <div class="fw">
+          <div class="fw-n" style="border-color:#5B4B7A; color:#5B4B7A;">03</div>
+          <span class="fw-pill" style="background:rgba(91,75,122,.1); border-color:rgba(91,75,122,.3); color:#5B4B7A;">LIMM</span>
+          <span class="fw-name">Leadership Infrastructure Maturity Model</span>
+          <span class="fw-arr">→</span>
+        </div>
+        <div class="fw">
+          <div class="fw-n" style="border-color:#0F1E2E; color:#0F1E2E;">04</div>
+          <span class="fw-pill" style="background:rgba(15,30,46,.08); border-color:rgba(15,30,46,.2); color:#0F1E2E;">LIS</span>
+          <span class="fw-name">Leadership Infrastructure Systems</span>
+          <span class="fw-arr">→</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MATURITY TEASER ─────────────────────────────────────────────────── -->
+<section class="maturity">
+  <div class="wrap">
+    <div class="maturity-hdr">
+      <div>
+        <p class="label" style="margin-bottom:.5rem;">Leadership Infrastructure Maturity Model</p>
+        <h2>Five stages of organisational leadership maturity.</h2>
+      </div>
+      <a href="#" class="maturity-link">Learn about LIMM</a>
+    </div>
+    <div class="maturity-grid">
+      <div class="m-card" style="opacity:.5;"><span class="m-stage">Stage 01</span><span class="m-label">Founder Dependency</span></div>
+      <div class="m-card" style="opacity:.64;"><span class="m-stage">Stage 02</span><span class="m-label">Emerging Leadership</span></div>
+      <div class="m-card" style="opacity:.78;"><span class="m-stage">Stage 03</span><span class="m-label">Structured Leadership</span></div>
+      <div class="m-card" style="opacity:.9;"><span class="m-stage">Stage 04</span><span class="m-label">Distributed Ownership</span></div>
+      <div class="m-card"><span class="m-stage">Stage 05</span><span class="m-label">Autonomous Organisation</span></div>
+    </div>
+    <p class="maturity-note">Most scaling organisations sit at Stage 2 or 3. The ELI identifies exactly where.</p>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ───────────────────────────────────────────────────────── -->
+<section class="final-cta">
+  <div class="wrap-sm">
+    <h2>Find out where leadership pressure is building in your organisation.</h2>
+    <p>Take a 3-minute leadership infrastructure diagnostic and see where decision load, escalation, and ownership gaps are concentrated inside your company.</p>
+    <div class="cta-row">
+      <button class="btn btn-eli">Take the ELI Snapshot</button>
+      <span class="ghost">Book a Deep Diagnostic</span>
+    </div>
+    <p class="micro-dark">3 minutes · No account required · Instant result</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────────────────────── -->
+<footer>
+  <div class="ft">
+    <div class="ft-brand">
+      <div class="brand">
+        <div class="bars">
+          <span style="background:#fff;"></span>
+          <span style="background:var(--eli);"></span>
+          <span style="background:var(--oci);"></span>
+        </div>
+        <div class="wordmark">
+          <span class="lis" style="color:#fff;">LIS</span>
+          <span class="sub" style="color:rgba(255,255,255,.35);">Leadership Infrastructure</span>
+        </div>
+      </div>
+      <p>A structured methodology for diagnosing and fixing the leadership infrastructure problems that emerge as organisations scale.</p>
+      <div class="ft-cta">Take the ELI Snapshot →</div>
+    </div>
+    <div class="ft-col">
+      <h4>Diagnostic</h4>
+      <ul><li><a href="#">ELI Snapshot</a></li><li><a href="#">Deep Diagnostic</a></li></ul>
+    </div>
+    <div class="ft-col">
+      <h4>Platform</h4>
+      <ul><li><a href="#">Methodology</a></li><li><a href="#">Solutions</a></li><li><a href="#">Insights</a></li></ul>
+    </div>
+    <div class="ft-col">
+      <h4>Company</h4>
+      <ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">Client Portal</a></li></ul>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <div class="ft-bot-in">
+      <p>© 2025 Leadership Infrastructure Systems. All rights reserved.</p>
+      <div class="ft-bot-links"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────
+   CSS CUSTOM PROPERTIES
+   Mirrors the Tailwind token set — use these
+   for any CSS that cannot be expressed as a
+   Tailwind utility (gradients, borders, etc.)
+───────────────────────────────────────────── */
+:root {
+  --navy:          #1E2B38;
+  --navy-deep:     #151f2a;
+  --navy-mid:      #263444;
+  --eli:           #4C6A5E;
+  --eli-light:     #5e7f71;
+  --oci:           #C8A04A;
+  --limm:          #6A4C7D;
+  --surface:       #F4F6F8;
+  --surface-muted: #E8ECF0;
+  --ink:           #1F2933;
+  --ink-soft:      #5a6473;
+  --ink-faint:     #8e99a4;
+}
+
+/* ─────────────────────────────────────────────
+   BASE
+───────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing:  antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--surface);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: var(--navy);
+    line-height: 1.12;
+    font-weight: 500;
+  }
+
+  p { color: var(--ink); }
+
+  ::selection {
+    background-color: var(--oci);
+    color: var(--navy-deep);
+  }
+
+  *:focus-visible {
+    outline: 2px solid var(--eli);
+    outline-offset: 3px;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   COMPONENT CLASSES
+───────────────────────────────────────────── */
+@layer components {
+
+  /* ── Buttons ──────────────────────────────────
+     Base .btn sets behaviour only — no size.
+     Size is always applied via utility classes
+     so consumers can override freely without
+     specificity fights.
+  ────────────────────────────────────────────── */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2
+           font-body font-medium
+           transition-all duration-200 cursor-pointer
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2
+           select-none whitespace-nowrap;
+    /* Default size — override with px-* / py-* / text-* utilities */
+    padding: 0.75rem 1.75rem;
+    font-size: 0.8125rem;
+    letter-spacing: 0.06em;
+  }
+
+  .btn-primary {
+    @apply btn bg-navy text-white border border-navy
+           hover:bg-navy-mid focus-visible:ring-navy;
+  }
+
+  .btn-secondary {
+    @apply btn bg-transparent text-navy border border-navy
+           hover:bg-navy hover:text-white focus-visible:ring-navy;
+  }
+
+  .btn-eli {
+    @apply btn bg-eli text-white border border-eli
+           hover:bg-eli-light focus-visible:ring-eli;
+  }
+
+  /* Ghost variants — used alongside filled buttons */
+  .btn-ghost-light {
+    @apply font-body font-medium text-[0.8125rem] tracking-[0.04em]
+           text-white/65 hover:text-white
+           underline underline-offset-4 transition-colors duration-150
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50;
+  }
+
+  .btn-ghost-dark {
+    @apply font-body font-medium text-[0.8125rem] tracking-[0.04em]
+           text-ink-soft hover:text-navy
+           underline underline-offset-4 transition-colors duration-150
+           focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy/50;
+  }
+
+  /* ── Labels / eyebrows ────────────────────── */
+  .eyebrow {
+    @apply font-body font-semibold uppercase tracking-[0.18em] text-eli;
+    font-size: 0.6875rem;
+  }
+
+  /* ── Framework badge ──────────────────────── */
+  .fw-badge {
+    @apply inline-flex items-center font-body font-semibold
+           uppercase tracking-[0.16em] border px-3 py-1.5;
+    font-size: 0.625rem;
+  }
+
+  /* ── Cards ────────────────────────────────── */
+  .card {
+    @apply bg-white border border-surface-muted;
+  }
+
+  /* ── Navigation links ─────────────────────── */
+  .nav-link {
+    @apply font-body font-medium text-[0.875rem] tracking-[0.03em]
+           text-ink-soft hover:text-navy transition-colors duration-150;
+  }
+
+  .nav-link-active {
+    @apply font-body font-semibold text-[0.875rem] tracking-[0.03em] text-navy;
+  }
+
+  /* ── Layout wrappers ──────────────────────── */
+  .section-inner {
+    @apply max-w-7xl mx-auto px-6 lg:px-12;
+  }
+
+  .section-inner-sm {
+    @apply max-w-4xl mx-auto px-6 lg:px-12;
+  }
+
+  /* ── Accent left-border rule ──────────────── */
+  .accent-rule-eli {
+    border-left: 2.5px solid var(--eli);
+  }
+
+  /* ── Numbered step badge ──────────────────── */
+  .step-badge {
+    @apply inline-flex items-center justify-center shrink-0 border
+           font-body font-semibold;
+    width: 1.875rem;
+    height: 1.875rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── Dark section background ──────────────── */
+  .navy-section {
+    background-color: var(--navy-deep);
+    background-image:
+      radial-gradient(ellipse 80% 60% at 100% 0%,  rgba(76, 106, 94,  0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 0%   100%, rgba(106, 76, 125, 0.06) 0%, transparent 60%);
+  }
+}
+
+/* ─────────────────────────────────────────────
+   UTILITIES
+───────────────────────────────────────────── */
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty  { text-wrap: pretty;  }
+
+  /* Section vertical rhythm */
+  .section-py    { @apply py-20 lg:py-28; }
+  .section-py-sm { @apply py-14 lg:py-20; }
+  .section-py-lg { @apply py-24 lg:py-32; }
+
+  /* Hide scrollbar while preserving scroll behaviour */
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+}
