@@ -465,6 +465,7 @@ export default function HomePage() {
                   <div
                     key={logo.alt}
                     className={`${logo.bg} p-5 flex items-center justify-center`}
+                    style={{ height: '80px' }}
                   >
                     <Image
                       src={logo.src}
@@ -489,13 +490,15 @@ export default function HomePage() {
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-10">
             <div>
               <div className="flex items-center gap-3 mb-3">
-                <Image
-                  src="/logos/limm-logo.png"
-                  alt="Leadership Infrastructure Maturity Model (LIMM)"
-                  width={28}
-                  height={28}
-                  className="h-7 w-auto object-contain"
-                />
+                <div style={{ width: 28, height: 28, overflow: 'hidden', flexShrink: 0 }}>
+                  <Image
+                    src="/logos/limm-logo.png"
+                    alt="Leadership Infrastructure Maturity Model (LIMM)"
+                    width={28}
+                    height={28}
+                    className="w-7 h-auto object-contain object-top"
+                  />
+                </div>
                 <p className="eyebrow text-limm">Leadership Infrastructure Maturity Model</p>
               </div>
               <h2 className="font-display font-medium text-navy text-xl lg:text-2xl">
