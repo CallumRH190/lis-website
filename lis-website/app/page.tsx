@@ -10,6 +10,7 @@ import CostCalculator from '@/components/CostCalculator'
 import Reveal from '@/components/Reveal'
 import { HeroItem, HeroCard } from '@/components/HeroEntrance'
 import StaggerReveal from '@/components/StaggerReveal'
+import ELIHeroMockup from '@/components/ELIHeroMockup'
 
 export const metadata: Metadata = {
   title: 'Leadership Infrastructure for Scaling Organisations',
@@ -114,32 +115,10 @@ export default function HomePage() {
               </HeroItem>
             </div>
 
-            {/* Infrastructure stack — desktop only */}
+            {/* ELI animated mockup — desktop only */}
             <div className="lg:col-span-5 hidden lg:block" aria-hidden="true">
               <HeroCard>
-                <div className="border border-white/[0.10] bg-white/[0.03] p-7">
-                <p className="eyebrow text-white/30 mb-7">Infrastructure Stack</p>
-                {heroStack.map((item) => (
-                  <div
-                    key={item.id}
-                    className="flex items-center gap-4 py-4 border-b border-white/[0.07] last:border-0"
-                  >
-                    <div
-                      className="w-0.5 self-stretch min-h-[2.25rem] shrink-0 rounded-sm"
-                      style={{ backgroundColor: item.color }}
-                    />
-                    <div>
-                      <span
-                        className="font-body font-semibold tracking-[0.16em] uppercase block text-label-sm"
-                        style={{ color: item.color }}
-                      >
-                        {item.id}
-                      </span>
-                      <p className="font-body text-body-sm text-white/55 mt-0.5">{item.name}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                <ELIHeroMockup />
               </HeroCard>
             </div>
           </div>
