@@ -236,13 +236,15 @@ export default function MethodologyPage() {
         <div className="section-inner">
           <div className="mb-12">
             <div className="flex items-center gap-4 mb-6">
-              <Image
-                src="/logos/limm-logo.png"
-                alt="LIMM — Leadership Infrastructure Maturity Model"
-                width={36}
-                height={36}
-                className="h-9 w-auto object-contain"
-              />
+              <div style={{ width: 36, height: 36, overflow: 'hidden', flexShrink: 0 }}>
+                <Image
+                  src="/logos/limm-logo.png"
+                  alt="LIMM — Leadership Infrastructure Maturity Model"
+                  width={36}
+                  height={36}
+                  className="w-9 h-auto object-contain object-top"
+                />
+              </div>
               <span className="fw-badge" style={{ backgroundColor: 'rgba(106,76,125,0.08)', borderColor: 'rgba(106,76,125,0.25)', color: '#6A4C7D' }}>
                 LIMM
               </span>
