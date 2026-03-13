@@ -4,6 +4,8 @@ import Image from 'next/image'
 import PageHeader from '@/components/PageHeader'
 import CTASection from '@/components/CTASection'
 import SectionRule from '@/components/SectionRule'
+import LIMMExplorer from '@/components/LIMMExplorer'
+import Reveal from '@/components/Reveal'
 
 export const metadata: Metadata = {
   title: 'Methodology — The Leadership Infrastructure Framework',
@@ -93,22 +95,26 @@ export default function MethodologyPage() {
         <div className="section-inner">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-5">
-              <SectionRule />
-              <p className="eyebrow mb-5">The Core Thesis</p>
-              <h2
-                id="thesis-heading"
-                className="font-display font-medium text-navy text-display-sm lg:text-display-md text-balance"
-              >
-                Leadership problems are infrastructure problems.
-              </h2>
+              <Reveal>
+                <SectionRule />
+                <p className="eyebrow mb-5">The Core Thesis</p>
+                <h2
+                  id="thesis-heading"
+                  className="font-display font-medium text-navy text-display-sm lg:text-display-md text-balance"
+                >
+                  Leadership problems are infrastructure problems.
+                </h2>
+              </Reveal>
             </div>
             <div className="lg:col-span-7 lg:pt-14 space-y-5">
+              <Reveal delay={1}>
               <p className="font-body text-body-lg text-ink-soft leading-relaxed">
                 Individual capability is necessary but not sufficient. The degree to which individual leadership capability translates into organisational performance depends on the systems that surround it: how decisions are structured, how ownership is assigned, how authority is defined, and how accountability is maintained.
               </p>
               <p className="font-body text-body-lg text-ink-soft leading-relaxed">
                 The LIS methodology begins with diagnosis — measuring the current structural state — and moves through to implementation: installing the infrastructure systems that allow leadership to operate effectively at scale.
               </p>
+              </Reveal>
             </div>
           </div>
 
@@ -252,39 +258,7 @@ export default function MethodologyPage() {
             </p>
           </div>
 
-          <div className="divide-y divide-surface-muted">
-            {maturityStages.map((stage, i) => (
-              <div
-                key={stage.stage}
-                className="py-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start"
-              >
-                <div className="lg:col-span-1">
-                  {/* Use text-limm (not text-limm-DEFAULT) */}
-                  <span className="font-body text-label-sm text-limm font-semibold tracking-[0.16em]" aria-hidden="true">
-                    {stage.stage}
-                  </span>
-                </div>
-                <div className="lg:col-span-3">
-                  <h3 className="font-display font-medium text-navy text-body-xl">{stage.label}</h3>
-                </div>
-                <div className="lg:col-span-4">
-                  <p className="font-body text-body-sm text-ink-soft leading-relaxed">{stage.description}</p>
-                </div>
-                <div className="lg:col-span-4">
-                  <p className="font-body text-label font-semibold tracking-[0.12em] uppercase text-ink-faint mb-3">Indicators</p>
-                  <ul className="space-y-1.5" role="list">
-                    {stage.signals.map(signal => (
-                      <li key={signal} className="flex items-start gap-2">
-                        {/* Use bg-limm (not bg-limm-DEFAULT) */}
-                        <div className="w-1 h-1 rounded-full mt-1.5 bg-limm shrink-0" aria-hidden="true" />
-                        <span className="font-body text-label text-ink-soft">{signal}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
-          </div>
+          <LIMMExplorer />
         </div>
       </section>
 
