@@ -8,6 +8,8 @@ import EscalationLoop from '@/components/EscalationLoop'
 import RoleSwitcher from '@/components/RoleSwitcher'
 import CostCalculator from '@/components/CostCalculator'
 import Reveal from '@/components/Reveal'
+import { HeroItem, HeroCard } from '@/components/HeroEntrance'
+import StaggerReveal from '@/components/StaggerReveal'
 
 export const metadata: Metadata = {
   title: 'Leadership Infrastructure for Scaling Organisations',
@@ -80,35 +82,42 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
             <div className="lg:col-span-7">
-              <SectionRule />
-              <p className="eyebrow mb-5">Executive Diagnostic Platform</p>
-              <h1
-                className="font-display font-medium text-white text-balance"
-                style={{ fontSize: 'clamp(2.1rem, 4.8vw, 3.375rem)', lineHeight: 1.07, letterSpacing: '-0.022em' }}
-              >
-                Leadership Infrastructure for Companies Scaling Under Pressure
-              </h1>
-              <p className="mt-7 font-body text-body-xl text-white/60 leading-relaxed max-w-[34rem]">
-                A structured diagnostic that reveals where ownership, decision-making, and leadership load are breaking inside your organisation.
-              </p>
-
-              <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                <Link href="/eli-snapshot" className="btn-eli px-8 py-3.5 text-[0.8125rem]">
-                  Take the 3-Minute Leadership Diagnostic
-                </Link>
-                {/* btn-ghost-light handles its own text sizing */}
-                <Link href="/methodology" className="btn-ghost-light">
-                  View the Methodology
-                </Link>
-              </div>
-              <p className="mt-4 font-body text-label text-white/30 tracking-[0.06em]">
-                3-minute diagnostic · No account required · Instant result
-              </p>
+              <HeroItem index={0}>
+                <SectionRule />
+                <p className="eyebrow mb-5">Executive Diagnostic Platform</p>
+              </HeroItem>
+              <HeroItem index={1}>
+                <h1
+                  className="font-display font-medium text-white text-balance"
+                  style={{ fontSize: 'clamp(2.1rem, 4.8vw, 3.375rem)', lineHeight: 1.07, letterSpacing: '-0.022em' }}
+                >
+                  Leadership Infrastructure for Companies Scaling Under Pressure
+                </h1>
+              </HeroItem>
+              <HeroItem index={2}>
+                <p className="mt-7 font-body text-body-xl text-white/60 leading-relaxed max-w-[34rem]">
+                  A structured diagnostic that reveals where ownership, decision-making, and leadership load are breaking inside your organisation.
+                </p>
+              </HeroItem>
+              <HeroItem index={3}>
+                <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                  <Link href="/eli-snapshot" className="btn-eli px-8 py-3.5 text-[0.8125rem]">
+                    Take the 3-Minute Leadership Diagnostic
+                  </Link>
+                  <Link href="/methodology" className="btn-ghost-light">
+                    View the Methodology
+                  </Link>
+                </div>
+                <p className="mt-4 font-body text-label text-white/30 tracking-[0.06em]">
+                  3-minute diagnostic · No account required · Instant result
+                </p>
+              </HeroItem>
             </div>
 
             {/* Infrastructure stack — desktop only */}
             <div className="lg:col-span-5 hidden lg:block" aria-hidden="true">
-              <div className="border border-white/[0.10] bg-white/[0.03] p-7">
+              <HeroCard>
+                <div className="border border-white/[0.10] bg-white/[0.03] p-7">
                 <p className="eyebrow text-white/30 mb-7">Infrastructure Stack</p>
                 {heroStack.map((item) => (
                   <div
@@ -131,13 +140,11 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
+              </HeroCard>
             </div>
           </div>
         </div>
       </section>
-
-      {/* ══════════════════════════════════════════════════
-          SYMPTOMS
       ══════════════════════════════════════════════════ */}
       <section className="bg-white section-py-sm border-b border-surface-muted">
         <div className="section-inner">
@@ -163,10 +170,11 @@ export default function HomePage() {
 
             <div className="lg:col-span-8">
               {/* gap-px mosaic — bg-surface-muted shows through as grid lines */}
-              <ul
+              <StaggerReveal
                 className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-surface-muted"
-                role="list"
-                aria-label="Signs of leadership infrastructure failure"
+                as="ul"
+                staggerMs={70}
+                distance={28}
               >
                 {symptoms.map((s) => (
                   <li key={s.id} className="bg-white px-7 py-6">
@@ -181,7 +189,7 @@ export default function HomePage() {
                     </div>
                   </li>
                 ))}
-              </ul>
+              </StaggerReveal>
               <p className="mt-4 font-body text-label text-ink-faint italic px-1">
                 If three or more of these patterns are present, the issue is structural.
               </p>
@@ -379,9 +387,11 @@ export default function HomePage() {
             </div>
           </div>
 
-          <ul
+          <StaggerReveal
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-surface-muted"
-            role="list"
+            as="ul"
+            staggerMs={90}
+            distance={32}
           >
             {whoItIsFor.map((profile) => (
               <li key={profile.role} className="bg-white px-7 py-8">
@@ -402,7 +412,7 @@ export default function HomePage() {
                 <p className="font-body text-body-sm text-ink-soft leading-relaxed">{profile.detail}</p>
               </li>
             ))}
-          </ul>
+          </StaggerReveal>
 
           <div className="mt-7 flex items-center justify-between flex-wrap gap-4 px-1">
             <p className="font-body text-label text-ink-faint">
