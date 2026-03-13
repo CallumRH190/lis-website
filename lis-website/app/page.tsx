@@ -5,6 +5,9 @@ import CTASection from '@/components/CTASection'
 import MethodologyStack from '@/components/MethodologyStack'
 import SectionRule from '@/components/SectionRule'
 import EscalationLoop from '@/components/EscalationLoop'
+import RoleSwitcher from '@/components/RoleSwitcher'
+import CostCalculator from '@/components/CostCalculator'
+import Reveal from '@/components/Reveal'
 
 export const metadata: Metadata = {
   title: 'Leadership Infrastructure for Scaling Organisations',
@@ -141,19 +144,21 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
 
             <div className="lg:col-span-4 lg:pt-1">
-              <SectionRule />
-              <p className="eyebrow mb-5">Recognise This?</p>
-              <h2 className="font-display font-medium text-navy text-display-sm text-balance">
-                Symptoms of leadership infrastructure failure.
-              </h2>
-              <p className="mt-5 font-body text-body-sm text-ink-soft leading-relaxed">
-                These are structural patterns, not management failures. They appear predictably when organisations scale faster than their leadership infrastructure.
-              </p>
-              <div className="mt-8">
-                <Link href="/eli-snapshot" className="btn-primary px-6 py-3 text-[0.75rem]">
-                  Run the Diagnostic
-                </Link>
-              </div>
+              <Reveal>
+                <SectionRule />
+                <p className="eyebrow mb-5">Recognise This?</p>
+                <h2 className="font-display font-medium text-navy text-display-sm text-balance">
+                  Symptoms of leadership infrastructure failure.
+                </h2>
+                <p className="mt-5 font-body text-body-sm text-ink-soft leading-relaxed">
+                  These are structural patterns, not management failures. They appear predictably when organisations scale faster than their leadership infrastructure.
+                </p>
+                <div className="mt-8">
+                  <Link href="/eli-snapshot" className="btn-primary px-6 py-3 text-[0.75rem]">
+                    Run the Diagnostic
+                  </Link>
+                </div>
+              </Reveal>
             </div>
 
             <div className="lg:col-span-8">
@@ -193,15 +198,18 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
             <div className="lg:col-span-5">
-              <SectionRule />
-              <p className="eyebrow mb-5">The Core Problem</p>
-              <h2 className="font-display font-medium text-navy text-display-sm lg:text-display-md text-balance">
-                Leadership problems are usually infrastructure problems.
-              </h2>
+              <Reveal>
+                <SectionRule />
+                <p className="eyebrow mb-5">The Core Problem</p>
+                <h2 className="font-display font-medium text-navy text-display-sm lg:text-display-md text-balance">
+                  Leadership problems are usually infrastructure problems.
+                </h2>
+              </Reveal>
             </div>
 
             <div className="lg:col-span-7 lg:pt-14">
-              <p className="font-body text-body-lg text-ink-soft leading-relaxed mb-6">
+              <Reveal delay={1}>
+                <p className="font-body text-body-lg text-ink-soft leading-relaxed mb-6">
                 Most organisations respond to leadership pressure by developing individual leaders — training programmes, coaching engagements, and capability frameworks.
               </p>
               <p className="font-body text-body-lg text-ink-soft leading-relaxed mb-8">
@@ -212,6 +220,7 @@ export default function HomePage() {
                   When those systems are absent or poorly designed, organisations experience predictable failure patterns — regardless of individual quality.
                 </p>
               </div>
+              </Reveal>
             </div>
           </div>
         </div>
@@ -410,6 +419,27 @@ export default function HomePage() {
       </section>
 
       {/* ══════════════════════════════════════════════════
+          ROLE SWITCHER
+      ══════════════════════════════════════════════════ */}
+      <section className="bg-surface section-py">
+        <div className="section-inner">
+          <Reveal>
+            <div className="mb-10">
+              <SectionRule />
+              <p className="eyebrow mb-5">By Role</p>
+              <h2 className="font-display font-medium text-navy text-display-sm lg:text-display-md text-balance max-w-xl">
+                The same structural problem. A different entry point.
+              </h2>
+              <p className="mt-5 font-body text-body-sm text-ink-soft leading-relaxed max-w-2xl">
+                Leadership infrastructure failure manifests differently depending on where you sit in the organisation. Select your role to see how the pattern typically presents.
+              </p>
+            </div>
+          </Reveal>
+          <RoleSwitcher />
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════
           METHODOLOGY STACK
       ══════════════════════════════════════════════════ */}
       <section className="bg-surface section-py">
@@ -519,6 +549,27 @@ export default function HomePage() {
           <p className="mt-5 font-body text-label text-ink-faint text-right">
             Most scaling organisations sit at Stage 2 or 3. The ELI identifies exactly where.
           </p>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════
+          COST CALCULATOR
+      ══════════════════════════════════════════════════ */}
+      <section className="bg-white section-py">
+        <div className="section-inner">
+          <Reveal>
+            <div className="mb-10">
+              <SectionRule />
+              <p className="eyebrow mb-5">The Cost of the Status Quo</p>
+              <h2 className="font-display font-medium text-navy text-display-sm lg:text-display-md text-balance max-w-xl">
+                Escalation has a measurable price.
+              </h2>
+              <p className="mt-5 font-body text-body-sm text-ink-soft leading-relaxed max-w-2xl">
+                Most organisations absorb the cost of escalation without ever quantifying it. Adjust the inputs below to see what it is costing yours — before factoring in opportunity cost or strategic displacement.
+              </p>
+            </div>
+          </Reveal>
+          <CostCalculator />
         </div>
       </section>
 
