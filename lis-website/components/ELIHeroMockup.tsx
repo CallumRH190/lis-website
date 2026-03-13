@@ -158,7 +158,6 @@ export default function ELIHeroMockup() {
             color:         'white',
             letterSpacing: '-0.03em',
             display:       'block',
-            tabularNums:   true,
             fontVariantNumeric: 'tabular-nums',
           }}>
             {score}
