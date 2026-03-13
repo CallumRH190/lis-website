@@ -145,6 +145,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      {/* ══════════════════════════════════════════════════
+          SYMPTOMS
       ══════════════════════════════════════════════════ */}
       <section className="bg-white section-py-sm border-b border-surface-muted">
         <div className="section-inner">
