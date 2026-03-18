@@ -46,7 +46,7 @@ export default function Navigation() {
       }`}
     >
       {/* Skip-to-content — visible on focus for keyboard users */}
-      <a
+      
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4
                    focus:z-50 focus:px-4 focus:py-2 focus:bg-eli focus:text-white
@@ -93,9 +93,8 @@ export default function Navigation() {
             ))}
             <div className="w-px h-4 bg-surface-muted" aria-hidden="true" />
             <Link
-              href="/portal"
-              className={pathname === '/portal' ? 'nav-link-active' : 'nav-link'}
-              aria-current={pathname === '/portal' ? 'page' : undefined}
+              href="https://oci-app.vercel.app/dashboard"
+              className="nav-link"
             >
               Portal
             </Link>
@@ -119,7 +118,6 @@ export default function Navigation() {
           </div>
 
           {/* ── Mobile hamburger ────────────────────── */}
-          {/* p-3 gives 44×44px touch target (WCAG 2.5.5); -mr-3 keeps it visually flush */}
           <button
             type="button"
             className="lg:hidden p-3 -mr-3 flex flex-col justify-center gap-[5px]"
@@ -148,13 +146,6 @@ export default function Navigation() {
       </div>
 
       {/* ── Mobile menu ──────────────────────────────── */}
-      {/*
-        grid-template-rows: 0fr → 1fr is properly browser-interpolated,
-        giving a smooth height animation without JS. The inner wrapper
-        needs overflow-hidden to clip content during transition.
-        tabIndex on links prevents keyboard focus from reaching hidden items
-        when the menu is collapsed.
-      */}
       <div
         id={MOBILE_MENU_ID}
         className={`lg:hidden grid transition-[grid-template-rows] duration-300 ease-in-out ${
@@ -180,10 +171,9 @@ export default function Navigation() {
                 </Link>
               ))}
               <Link
-                href="/portal"
+                href="https://oci-app.vercel.app/dashboard"
                 tabIndex={open ? 0 : -1}
                 className="py-3.5 font-body text-sm font-medium text-ink hover:text-navy transition-colors"
-                aria-current={pathname === '/portal' ? 'page' : undefined}
               >
                 Client Portal
               </Link>
